@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}{{ project.title }} - Realisation HUSB{% endblock %}
+{% block og_title %}{{ project.title }}{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container narrow">
+        {% if project.mission_type %}<p class="eyebrow">{{ project.mission_type }}</p>{% endif %}
+        <h1>{{ project.title }}</h1>
+        <p class="lead">{{ project.short_description }}</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container content-layout">
+        <article class="prose">
+            {% if project.image %}
+                <div class="media-box"><img src="{{ project.image.url }}" alt="{{ project.title }}" loading="lazy"></div>
+            {% endif %}
+            {% if project.description %}
+                {{ project.description|linebreaks }}
+            {% else %}
+                <p>Le detail de cette realisation sera complete apres validation des informations par HUSB.</p>
+            {% endif %}
+        </article>
+        <aside class="side-panel">
+            <strong>Informations</strong>
+            <div class="meta-grid">
+                {% if project.client %}<div class="meta-item"><span>Client</span><strong>{{ project.client }}</strong></div>{% endif %}
+                {% if project.location %}<div class="meta-item"><span>Lieu</span><strong>{{ project.location }}</strong></div>{% endif %}
+                {% if project.completion_date %}<div class="meta-item"><span>Date</span><strong>{{ project.completion_date|date:"d/m/Y" }}</strong></div>{% endif %}
+            </div>
+            <a class="button button-primary" href="{% url 'inquiries:contact' %}">Contacter HUSB</a>
+        </aside>
+    </div>
+</section>
+{% endblock %}

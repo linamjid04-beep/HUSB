@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Demande de devis materiel - Groupe HUSB{% endblock %}
+
+{% block content %}
+<section class="page-hero"><div class="container narrow"><p class="eyebrow">Materiel professionnel</p><h1>Demande de devis dediee</h1><p class="lead">Ce formulaire est separe du contact general pour qualifier les besoins en materiel fibre optique.</p></div></section>
+<section class="section"><div class="container form-shell">
+    <form method="post">
+        {% csrf_token %}
+        {% include "inquiries/form_fields.html" %}
+        <button class="button button-primary" type="submit">Envoyer la demande de devis</button>
+    </form>
+</div></section>
+{% endblock %}

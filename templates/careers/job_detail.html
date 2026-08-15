@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}{{ offer.title }} - Recrutement HUSB{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container narrow">
+        <p class="eyebrow">{{ offer.get_contract_type_display }} - {{ offer.location }}</p>
+        <h1>{{ offer.title }}</h1>
+        <p class="lead">{{ offer.short_description }}</p>
+    </div>
+</section>
+<section class="section">
+    <div class="container content-layout">
+        <article class="prose">
+            <h2>Description</h2>
+            {{ offer.description|linebreaks }}
+            {% if offer.missions %}<h2>Missions</h2>{{ offer.missions|linebreaks }}{% endif %}
+            {% if offer.profile %}<h2>Profil recherche</h2>{{ offer.profile|linebreaks }}{% endif %}
+            {% if offer.requirements %}<h2>Prerequis</h2>{{ offer.requirements|linebreaks }}{% endif %}
+        </article>
+        <aside class="side-panel">
+            <strong>Informations</strong>
+            <p>Publication: {{ offer.published_at|date:"d/m/Y" }}</p>
+            {% if offer.closing_date %}<p>Date limite: {{ offer.closing_date|date:"d/m/Y" }}</p>{% endif %}
+            <a class="button button-primary" href="{% url 'inquiries:contact' %}">Contacter HUSB</a>
+        </aside>
+    </div>
+</section>
+{% endblock %}

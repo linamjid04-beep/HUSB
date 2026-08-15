@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Partenaires - Groupe HUSB{% endblock %}
+{% block og_title %}Partenaires HUSB{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container narrow">
+        <p class="eyebrow">Partenaires</p>
+        <h1>Partenaires et marques valides</h1>
+        <p class="lead">Cette page affiche uniquement les partenaires actifs ajoutes par HUSB depuis l'administration.</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        {% if partners %}
+            <div class="partner-grid">
+                {% for partner in partners %}
+                    <article class="partner-card">
+                        {% if partner.logo %}
+                            <div class="media-box logo-box"><img src="{{ partner.logo.url }}" alt="Logo {{ partner.name }}" loading="lazy"></div>
+                        {% else %}
+                            <div class="media-box media-placeholder">Logo a ajouter</div>
+                        {% endif %}
+                        <h2>{{ partner.name }}</h2>
+                        {% if partner.description %}<p>{{ partner.description }}</p>{% endif %}
+                        {% if partner.website %}<a class="text-link" href="{{ partner.website }}" rel="noopener noreferrer" target="_blank">Site officiel</a>{% endif %}
+                    </article>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="empty-state">
+                <h2>Aucun partenaire publie</h2>
+                <p>Les logos, descriptions et liens seront ajoutes apres reception des autorisations et donnees officielles.</p>
+            </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

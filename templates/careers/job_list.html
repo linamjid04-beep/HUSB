@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Recrutement - Groupe HUSB{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container narrow">
+        <p class="eyebrow">Recrutement</p>
+        <h1>Postes ouverts</h1>
+        <p class="lead">Les offres visibles ici sont activees depuis Django Admin.</p>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+        {% if offers %}
+            <div class="card-grid">
+                {% for offer in offers %}
+                    <article class="card">
+                        <p class="tag">{{ offer.get_contract_type_display }} - {{ offer.location }}</p>
+                        <h2>{{ offer.title }}</h2>
+                        <p>{{ offer.short_description }}</p>
+                        <a class="text-link" href="{{ offer.get_absolute_url }}">Voir l'offre</a>
+                    </article>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="empty-state">
+                <h2>Aucune offre active pour le moment</h2>
+                <p>La page est prete; les postes seront publies apres validation depuis l'administration.</p>
+            </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

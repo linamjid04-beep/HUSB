@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Mentions legales - Groupe HUSB{% endblock %}
+{% block og_title %}Mentions legales HUSB{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container narrow">
+        <p class="eyebrow">Mentions legales</p>
+        <h1>Informations legales</h1>
+        <p class="lead">Cette page est structuree pour recevoir les donnees officielles de HUSB. Les champs manquants ne sont pas inventes.</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container content-layout">
+        <article class="prose">
+            {% if legal_items %}
+                <div class="meta-grid">
+                    {% for label, value in legal_items %}
+                        <div class="meta-item"><span>{{ label }}</span><strong>{{ value }}</strong></div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="empty-state">
+                    <h2>Donnees legales a fournir</h2>
+                    <p>Raison sociale, forme juridique, capital, siege, RC, IF, ICE, directeur de publication, contact et informations d'hebergement doivent etre confirmes.</p>
+                </div>
+            {% endif %}
+            <h2>Responsabilite editoriale</h2>
+            <p>Les contenus publies doivent etre valides par HUSB avant mise en production.</p>
+        </article>
+        <aside class="side-panel">
+            <strong>Documentation</strong>
+            <p>La liste complete des informations attendues est disponible dans `docs/CONTENUS_MANQUANTS_HUSB.md`.</p>
+        </aside>
+    </div>
+</section>
+{% endblock %}

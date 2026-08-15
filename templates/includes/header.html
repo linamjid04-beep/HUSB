@@ -1,0 +1,22 @@
+<header class="site-header">
+    <div class="container header-content">
+        <a class="brand" href="{% url 'core:home' %}" aria-label="Accueil Groupe HUSB">
+            <span class="brand-mark">H</span>
+            <span>Groupe HUSB</span>
+        </a>
+        <button class="nav-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false">
+            <span class="sr-only">Ouvrir le menu</span>
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="primary-nav" id="primary-navigation" aria-label="Navigation principale">
+            <a {% if request.resolver_match.url_name == "home" %}aria-current="page"{% endif %} href="{% url 'core:home' %}">Accueil</a>
+            <a {% if request.resolver_match.url_name == "about" %}aria-current="page"{% endif %} href="{% url 'core:about' %}">A propos</a>
+            <a {% if request.resolver_match.url_name == "services" %}aria-current="page"{% endif %} href="{% url 'core:services' %}">Nos metiers</a>
+            <a {% if request.resolver_match.namespace == "catalog" %}aria-current="page"{% endif %} href="{% url 'catalog:equipment' %}">Materiel professionnel</a>
+            <a {% if request.resolver_match.url_name == "projects" or request.resolver_match.url_name == "project_detail" %}aria-current="page"{% endif %} href="{% url 'core:projects' %}">Realisations</a>
+            <a {% if request.resolver_match.url_name == "partners" %}aria-current="page"{% endif %} href="{% url 'core:partners' %}">Partenaires</a>
+            <a {% if request.resolver_match.namespace == "careers" %}aria-current="page"{% endif %} href="{% url 'careers:job_list' %}">Recrutement</a>
+            <a class="nav-cta" {% if request.resolver_match.namespace == "inquiries" %}aria-current="page"{% endif %} href="{% url 'inquiries:contact' %}">Contact</a>
+        </nav>
+    </div>
+</header>

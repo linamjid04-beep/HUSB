@@ -1,0 +1,30 @@
+{% load tz %}
+<footer class="site-footer">
+    <div class="container footer-grid">
+        <div>
+            <strong>Groupe HUSB</strong>
+            <p>Telecommunications, fibre optique et materiel professionnel au Maroc. Les contenus officiels restent a valider par HUSB.</p>
+        </div>
+        <div>
+            <strong>Navigation</strong>
+            <a href="{% url 'core:about' %}">A propos</a>
+            <a href="{% url 'core:services' %}">Nos metiers</a>
+            <a href="{% url 'core:projects' %}">Realisations</a>
+            <a href="{% url 'core:partners' %}">Partenaires</a>
+            <a href="{% url 'catalog:equipment' %}">Materiel professionnel</a>
+            <a href="{% url 'careers:job_list' %}">Recrutement</a>
+        </div>
+        <div>
+            <strong>Demandes</strong>
+            <a href="{% url 'inquiries:contact' %}">Contact general</a>
+            <a href="{% url 'inquiries:quote_request' %}">Demande de devis materiel</a>
+            <a href="{% url 'core:legal_notice' %}">Mentions legales</a>
+            <a href="{% url 'core:privacy_policy' %}">Politique de confidentialite</a>
+            {% if contact_config.email %}<a href="mailto:{{ contact_config.email }}">{{ contact_config.email }}</a>{% endif %}
+            {% if contact_config.phone %}<a href="tel:{{ contact_config.phone }}">{{ contact_config.phone }}</a>{% endif %}
+        </div>
+    </div>
+    <div class="container footer-bottom">
+        <span>{% now "Y" %} Groupe HUSB. Contenus institutionnels en cours de validation.</span>
+    </div>
+</footer>

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Politique de confidentialite - Groupe HUSB{% endblock %}
+{% block og_title %}Politique de confidentialite HUSB{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container narrow">
+        <p class="eyebrow">Confidentialite</p>
+        <h1>Protection des donnees personnelles</h1>
+        <p class="lead">Politique preparee pour validation humaine. Elle decrit le fonctionnement technique du site sans se substituer a un avis juridique.</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container prose">
+        <h2>Donnees collectees</h2>
+        <p>Les formulaires peuvent collecter nom, prenom, entreprise, email, telephone, ville, objet, message, interet produit, quantite et informations utiles au traitement d'une demande.</p>
+
+        <h2>Finalites</h2>
+        <p>Les donnees servent a repondre aux demandes de contact, traiter les demandes de devis materiel et assurer le suivi administratif dans Django Admin.</p>
+
+        <h2>Duree de conservation</h2>
+        <p>La duree exacte doit etre validee par HUSB. Le back-office permet de traiter et archiver les demandes; une politique interne de purge devra etre fixee.</p>
+
+        <h2>Securite</h2>
+        <p>Le site utilise CSRF, validation serveur, honeypot anti-spam et configuration de securite activable en production. Les acces admin doivent rester reserves aux personnes autorisees.</p>
+
+        <h2>Droits des personnes</h2>
+        <p>Les personnes concernees peuvent demander l'acces, la rectification ou la suppression de leurs donnees via le contact officiel que HUSB devra fournir.</p>
+
+        <h2>Cadre marocain</h2>
+        <p>La politique doit etre relue au regard de la loi marocaine 09-08 et, si necessaire, des obligations CNDP applicables a HUSB.</p>
+
+        <h2>Cookies</h2>
+        <p>Aucun service de tracking ou embed tiers n'est ajoute dans la codebase actuelle. Une banniere de consentement ne sera necessaire que si HUSB ajoute des cookies non essentiels.</p>
+    </div>
+</section>
+{% endblock %}

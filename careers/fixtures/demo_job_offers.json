@@ -1,0 +1,42 @@
+[
+  {
+    "model": "careers.joboffer",
+    "pk": 1,
+    "fields": {
+      "title": "Exemple de demonstration - Technicien fibre optique",
+      "slug": "exemple-demo-technicien-fibre",
+      "location": "Rabat",
+      "contract_type": "stage",
+      "short_description": "Offre fictive reservee aux demonstrations locales du lot 1.",
+      "description": "Cette offre est un exemple de demonstration. Elle ne doit pas etre presentee comme une offre officielle HUSB.",
+      "profile": "Profil de demonstration a remplacer par un contenu valide.",
+      "requirements": "Prerequis de demonstration a remplacer par un contenu valide.",
+      "published_at": "2026-08-02T09:00:00Z",
+      "closing_date": null,
+      "is_active": true,
+      "display_order": 1,
+      "created_at": "2026-08-02T09:00:00Z",
+      "updated_at": "2026-08-02T09:00:00Z"
+    }
+  },
+  {
+    "model": "careers.joboffer",
+    "pk": 2,
+    "fields": {
+      "title": "Exemple de demonstration - Assistant bureau d'etudes",
+      "slug": "exemple-demo-assistant-bureau-etudes",
+      "location": "Rabat",
+      "contract_type": "stage",
+      "short_description": "Offre fictive reservee aux tests de publication.",
+      "description": "Cette offre est un exemple de demonstration et peut etre desactivee depuis l'administration.",
+      "profile": "Profil de demonstration.",
+      "requirements": "Prerequis de demonstration.",
+      "published_at": "2026-08-02T09:00:00Z",
+      "closing_date": null,
+      "is_active": false,
+      "display_order": 2,
+      "created_at": "2026-08-02T09:00:00Z",
+      "updated_at": "2026-08-02T09:00:00Z"
+    }
+  }
+]

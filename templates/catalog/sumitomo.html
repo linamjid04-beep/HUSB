@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}{{ partner_name }} - Partenaire materiel HUSB{% endblock %}
+{% block og_title %}{{ partner_name }} et HUSB{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container narrow">
+        <p class="eyebrow">Partenaire materiel</p>
+        <h1>{{ partner_name }}</h1>
+        <p class="lead">Le nom de cette page est centralise pour correction rapide si les documents officiels confirment une autre orthographe.</p>
+        <a class="button button-primary" href="{% url 'inquiries:quote_request' %}">Demander un devis materiel</a>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container split">
+        <div>
+            <h2>Page marque prete a completer</h2>
+            <p>Cette page peut accueillir le logo, la presentation officielle, les photos, les documents telechargeables et les informations techniques validees.</p>
+            <p>Aucun modele, prix, certification, performance ou garantie n'est publie sans source officielle fournie a HUSB.</p>
+        </div>
+        <div class="notice">
+            <strong>Orthographe a confirmer</strong>
+            <p>Le projet mentionne parfois Sumitomo ou Sumimoto. La valeur visible est centralisee dans `core/site_config.py`.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-muted">
+    <div class="container card-grid">
+        <article class="card"><h2>Gamme de soudeuses</h2><p>Emplacement reserve aux familles de produits validees.</p></article>
+        <article class="card"><h2>Caracteristiques</h2><p>Emplacement reserve aux donnees techniques officielles.</p></article>
+        <article class="card"><h2>Applications</h2><p>Emplacement reserve aux usages confirmes par la documentation.</p></article>
+        <article class="card"><h2>Photos</h2><p>Medias a ajouter depuis les contenus fournis par HUSB ou le partenaire.</p></article>
+        <article class="card"><h2>Documentation</h2><p>Fiches techniques PDF a publier uniquement si elles sont autorisees.</p></article>
+        <article class="card"><h2>Devis</h2><p>Les demandes commerciales passent par le formulaire de devis materiel.</p></article>
+    </div>
+</section>
+{% endblock %}

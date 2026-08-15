@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+
+{% block title %}Groupe HUSB - Telecoms et fibre optique au Maroc{% endblock %}
+{% block og_title %}Groupe HUSB - Telecoms et fibre optique{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="container hero-grid">
+        <div class="hero-copy">
+            <p class="eyebrow">Groupe HUSB</p>
+            <h1>Telecoms, fibre optique et materiel professionnel</h1>
+            <p class="lead">Une presence institutionnelle claire pour presenter les activites HUSB: bureau d'etudes, travaux fibre optique et fourniture de materiel professionnel sur devis.</p>
+            <div class="actions">
+                <a class="button button-primary" href="{% url 'core:services' %}">Decouvrir nos metiers</a>
+                <a class="button button-secondary" href="{% url 'inquiries:quote_request' %}">Demander un devis</a>
+            </div>
+        </div>
+        <div class="signal-panel" aria-label="Domaines d'intervention HUSB">
+            <div><span>Bureau d'etudes</span><strong>Plans, analyse et conception fibre</strong></div>
+            <div><span>Travaux</span><strong>Tirage, raccordement, tests et mise en service</strong></div>
+            <div><span>Materiel pro</span><strong>Equipements pour professionnels de la fibre</strong></div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container split">
+        <div>
+            <p class="eyebrow">Presentation</p>
+            <h2>Une approche integree pour les projets fibre optique</h2>
+            <p>HUSB intervient dans un perimetre telecoms et fibre optique. Les textes institutionnels definitifs, references clients, chiffres et certifications doivent encore etre fournis et valides par HUSB avant publication officielle.</p>
+        </div>
+        <div class="notice">
+            <strong>Contenu controle</strong>
+            <p>Le site distingue les donnees confirmables des informations en attente. Les sections dynamiques restent vides tant que l'administration ne publie pas de contenu valide.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-muted">
+    <div class="container">
+        <div class="section-heading">
+            <p class="eyebrow">Metiers</p>
+            <h2>Trois poles pour comprendre l'activite HUSB</h2>
+        </div>
+        <div class="card-grid">
+            <article class="card">
+                <h3>Bureau d'etudes</h3>
+                <p>Numerisation de plans, analyse, architecture reseau, design de nouvelles zones et optimisation.</p>
+                <a class="text-link" href="{% url 'core:services' %}">Voir le pole</a>
+            </article>
+            <article class="card">
+                <h3>Travaux fibre optique</h3>
+                <p>Tirage de cables, raccordement, soudure, tests, PTO, branchement abonne et mise en service.</p>
+                <a class="text-link" href="{% url 'core:services' %}">Voir le pole</a>
+            </article>
+            <article class="card">
+                <h3>Materiel professionnel</h3>
+                <p>Activite de revente de materiel pour professionnels de la fibre, sans panier ni paiement en ligne.</p>
+                <a class="text-link" href="{% url 'catalog:equipment' %}">Voir le materiel</a>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container split">
+        <div>
+            <p class="eyebrow">Materiel</p>
+            <h2>Une vitrine professionnelle geree depuis l'administration</h2>
+            <p>Les categories et produits publies apparaissent uniquement apres activation. Les prix, garanties et caracteristiques techniques ne sont pas inventes.</p>
+            <div class="actions">
+                <a class="button button-primary" href="{% url 'catalog:equipment' %}">Parcourir la vitrine</a>
+                <a class="button button-secondary" href="{% url 'catalog:sumitomo' %}">Page partenaire</a>
+            </div>
+        </div>
+        <div class="notice">
+            <strong>Disponibilite sur devis</strong>
+            <p>Le parcours commercial reste volontairement base sur une demande de devis distincte du formulaire de contact general.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-muted">
+    <div class="container">
+        <div class="section-heading">
+            <p class="eyebrow">Realisations</p>
+            <h2>References publiees par HUSB</h2>
+        </div>
+        {% if projects %}
+            <div class="card-grid">
+                {% for project in projects %}
+                    <article class="card">
+                        {% if project.mission_type %}<p class="tag">{{ project.mission_type }}</p>{% endif %}
+                        <h3>{{ project.title }}</h3>
+                        <p>{{ project.short_description }}</p>
+                        <a class="text-link" href="{{ project.get_absolute_url }}">Voir le detail</a>
+                    </article>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="empty-state">
+                <h3>Aucune realisation publiee</h3>
+                <p>Les references reelles seront affichees apres validation et publication dans Django Admin.</p>
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+{% if key_figures_enabled %}
+<section class="section">
+    <div class="container">
+        <div class="section-heading">
+            <p class="eyebrow">Chiffres cles</p>
+            <h2>Indicateurs valides par HUSB</h2>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<section class="section">
+    <div class="container">
+        <div class="section-heading">
+            <p class="eyebrow">Partenaires</p>
+            <h2>Partenaires actifs</h2>
+        </div>
+        {% if partners %}
+            <div class="partner-grid">
+                {% for partner in partners %}
+                    <article class="partner-card">
+                        {% if partner.logo %}<div class="media-box logo-box"><img src="{{ partner.logo.url }}" alt="Logo {{ partner.name }}" loading="lazy"></div>{% endif %}
+                        <h3>{{ partner.name }}</h3>
+                        {% if partner.description %}<p>{{ partner.description }}</p>{% endif %}
+                    </article>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="empty-state">
+                <h3>Aucun partenaire publie</h3>
+                <p>Les logos et noms officiels seront ajoutes uniquement apres reception des autorisations.</p>
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+<section class="section cta-band">
+    <div class="container cta-grid">
+        <div>
+            <p class="eyebrow">Contact</p>
+            <h2>Un besoin telecom, fibre ou materiel professionnel ?</h2>
+            <p>Envoyez une demande generale ou utilisez le formulaire dedie aux devis materiel.</p>
+        </div>
+        <div class="actions">
+            <a class="button button-primary" href="{% url 'inquiries:contact' %}">Contacter HUSB</a>
+            <a class="button button-light" href="{% url 'careers:job_list' %}">Voir le recrutement</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

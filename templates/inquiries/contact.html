@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Contact - Groupe HUSB{% endblock %}
+
+{% block content %}
+<section class="page-hero"><div class="container narrow"><p class="eyebrow">Contact</p><h1>Demande generale</h1><p class="lead">Ce formulaire concerne les demandes institutionnelles generales. Les devis materiel disposent d'un formulaire distinct.</p></div></section>
+<section class="section"><div class="container form-shell">
+    <form method="post">
+        {% csrf_token %}
+        {% include "inquiries/form_fields.html" %}
+        <button class="button button-primary" type="submit">Envoyer la demande</button>
+    </form>
+</div></section>
+{% endblock %}

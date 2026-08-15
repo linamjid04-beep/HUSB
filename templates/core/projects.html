@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Realisations - Groupe HUSB{% endblock %}
+{% block og_title %}Realisations HUSB{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container narrow">
+        <p class="eyebrow">Realisations</p>
+        <h1>References publiees par HUSB</h1>
+        <p class="lead">Les projets affiches ici sont geres depuis Django Admin et visibles uniquement lorsqu'ils sont publies.</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        {% if projects %}
+            <div class="card-grid">
+                {% for project in projects %}
+                    <article class="card">
+                        {% if project.image %}
+                            <div class="media-box"><img src="{{ project.image.url }}" alt="{{ project.title }}" loading="lazy"></div>
+                        {% endif %}
+                        {% if project.mission_type %}<p class="tag">{{ project.mission_type }}</p>{% endif %}
+                        <h2>{{ project.title }}</h2>
+                        <p>{{ project.short_description }}</p>
+                        <a class="text-link" href="{{ project.get_absolute_url }}">Voir le detail</a>
+                    </article>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="empty-state">
+                <h2>Aucune realisation publiee</h2>
+                <p>HUSB pourra ajouter ses references reelles avec titre, client, lieu, mission, description, image et date optionnelle.</p>
+            </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

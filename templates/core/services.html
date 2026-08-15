@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Nos metiers - Groupe HUSB{% endblock %}
+{% block og_title %}Nos metiers HUSB{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container narrow">
+        <p class="eyebrow">Nos metiers</p>
+        <h1>Etudes, travaux et materiel professionnel fibre optique</h1>
+        <p class="lead">Trois poles presentes de maniere factuelle a partir du perimetre fourni.</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container stacked">
+        <article class="feature-row">
+            <div><span class="number">01</span><h2>Bureau d'etudes</h2></div>
+            <div>
+                <p>Le pole bureau d'etudes couvre la preparation et la conception technique des zones fibre.</p>
+                <ul class="check-list">
+                    <li>Numerisation des plans operateurs et conversion vers formats numeriques.</li>
+                    <li>Analyse, etude de faisabilite, architecture reseau et production de plans.</li>
+                    <li>Design de nouvelles zones et optimisation des livrables techniques.</li>
+                </ul>
+            </div>
+        </article>
+        <article class="feature-row">
+            <div><span class="number">02</span><h2>Travaux</h2></div>
+            <div>
+                <p>Le pole travaux presente les operations terrain liees a la fibre optique.</p>
+                <ul class="check-list">
+                    <li>Tirage de cables, raccordement et soudure.</li>
+                    <li>Tests, branchement abonne, PTO et mise en service.</li>
+                    <li>Execution dans un contexte telecom selon les informations validees par HUSB.</li>
+                </ul>
+            </div>
+        </article>
+        <article class="feature-row">
+            <div><span class="number">03</span><h2>Materiel professionnel</h2></div>
+            <div>
+                <p>HUSB prepare une activite de revente de materiel destine aux professionnels de la fibre.</p>
+                <div class="actions">
+                    <a class="button button-primary" href="{% url 'catalog:equipment' %}">Voir le materiel</a>
+                    <a class="button button-secondary" href="{% url 'catalog:sumitomo' %}">Page partenaire</a>
+                    <a class="button button-secondary" href="{% url 'inquiries:quote_request' %}">Demander un devis</a>
+                </div>
+            </div>
+        </article>
+    </div>
+</section>
+{% endblock %}
